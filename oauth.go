@@ -75,7 +75,7 @@ type Server struct {
 }
 
 func init() {
-	togo.RegisterProviderFunc("oauth-server", togo.PriorityService, func(k *togo.Kernel) error {
+	togo.RegisterProviderFunc("oauth-server", togo.PriorityLate+10, func(k *togo.Kernel) error {
 		s := New()
 		k.Set("oauth-server", s)
 		if k.Router != nil {
